@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
-import { GoogleCalendarContactCardDirective } from '../google-calendar-contact-card/google-calendar-contact-card.directive';
+import { GoogleCalendarContactCardDirective } from './google-calendar-contact-card/google-calendar-contact-card.directive';
 
 @Component({
   selector: 'app',
