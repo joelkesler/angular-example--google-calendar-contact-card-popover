@@ -7,6 +7,7 @@ import {
   inject,
   Injectable,
 } from '@angular/core';
+
 import { GoogleCalendarContactCardComponent } from './component/google-calendar-contact-card.component';
 import { cardPositions } from './positions';
 
@@ -39,7 +40,9 @@ export class GoogleCalendarContactCardDirective {
 
   @HostListener('mouseenter') onMouseEnter(): void {
     this.triggerIsHovered = true;
-    if (!this.currentOverlayComponent) this.startOpenTimer();
+    if (!this.currentOverlayComponent) {
+      this.startOpenTimer();
+    }
   }
 
   @HostListener('mouseleave') onMouseLeave(): void {
@@ -66,7 +69,6 @@ export class GoogleCalendarContactCardDirective {
   }
 
   checkIfCanClose() {
-    console.log('checkIfCanClose');
     if (
       !this.triggerIsHovered &&
       !this.currentOverlayComponent?.popoverIsHovered
