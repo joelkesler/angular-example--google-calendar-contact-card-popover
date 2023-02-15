@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, inject } from '@angular/core';
-import { GoogleCalendarContactCardStateService } from '../google-calendar-contact-card.directive';
+
+import { CardStateService } from '../google-calendar-contact-card.directive';
 
 @Component({
-  selector: 'app-google-calendar-contact-card',
-  templateUrl: './google-calendar-contact-card.component.html',
-  styleUrls: ['./google-calendar-contact-card.component.css'],
+  selector: 'app-contact-card',
+  templateUrl: './contact-card.component.html',
+  styleUrls: ['./contact-card.component.css'],
   standalone: true,
   imports: [CommonModule],
 })
-export class GoogleCalendarContactCardComponent {
+export class ContactCardComponent {
   public popoverIsHovered = false;
-  stateService = inject(GoogleCalendarContactCardStateService);
+  stateService = inject(CardStateService);
 
   @HostListener('mouseenter') onMouseEnter(): void {
     this.popoverIsHovered = true;

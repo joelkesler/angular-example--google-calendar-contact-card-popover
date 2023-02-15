@@ -1,7 +1,11 @@
 :host {
   display: block;
   padding: 16px;
-  margin: 16px;
+}
+
+.card-wrapper {
+  display: block;
+  padding: 16px;
   width: fit-content;
   background-color: white;
   border: 1px solid #e0e0e0;

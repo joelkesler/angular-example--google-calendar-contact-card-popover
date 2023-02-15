@@ -8,7 +8,7 @@ import {
   Injectable,
 } from '@angular/core';
 
-import { GoogleCalendarContactCardComponent } from './component/google-calendar-contact-card.component';
+import { ContactCardComponent } from './contact-card/contact-card.component';
 import { cardPositions } from './positions';
 
 @Directive({
@@ -17,12 +17,10 @@ import { cardPositions } from './positions';
 })
 export class GoogleCalendarContactCardDirective {
   private overlay = inject(Overlay);
-  private stateService = inject(GoogleCalendarContactCardStateService);
+  private stateService = inject(CardStateService);
 
-  contactCardComponent = new ComponentPortal(
-    GoogleCalendarContactCardComponent
-  );
-  currentOverlayComponent: GoogleCalendarContactCardComponent;
+  contactCardComponent = new ComponentPortal(ContactCardComponent);
+  currentOverlayComponent: ContactCardComponent;
   contactCardOverlayRef: OverlayRef;
 
   triggerIsHovered = false;
@@ -107,7 +105,7 @@ export class GoogleCalendarContactCardDirective {
     clearInterval(this.closeTimer);
     if (!this.currentOverlayComponent) return;
     this.contactCardOverlayRef.detach();
-    this.currentOverlayComponent = null;
+    this.currentOverlayComponent = undefined;
   }
 }
 
@@ -119,6 +117,6 @@ export class GoogleCalendarContactCardDirective {
 @Injectable({
   providedIn: 'root',
 })
-export class GoogleCalendarContactCardStateService {
+export class CardStateService {
   public currentPopover: GoogleCalendarContactCardDirective;
 }
