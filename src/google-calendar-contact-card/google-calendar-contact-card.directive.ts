@@ -63,7 +63,7 @@ export class GoogleCalendarContactCardDirective {
     clearInterval(this.closeTimer); // close any preexisting timers first
     this.closeTimer = setInterval(() => {
       this.checkIfCanClose();
-    }, 1000);
+    }, 500);
   }
 
   checkIfCanClose() {
